@@ -1,0 +1,23 @@
+{%extends "simple_app/base.html"%}
+{% block content %}
+<div class="width-card">
+<div class="main-card-product">
+    <img class="main-card-img" src="{{product.image.url}}">
+    <div class="second-part">
+        <p class="main-card-title">{{product.name}}</p>
+        <p class="main-card-description">{{product.description}}</p>
+    </div>
+</div>
+<div class="full-description">
+    <table class="full-table">
+        <!-- <h2>Не знаю как реализовать показ хар-тик</h2> -->
+        {%for key , value in feature.items%}
+        <tr>
+            <td class="first-part">{{key}} : </td>
+            <td class="second-part">{{value}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+</div>
+{% endblock %}

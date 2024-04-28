@@ -1,0 +1,14 @@
+{%load static%}
+{%for pr in product%}
+
+    <div class="card">
+
+        <img class="card-img" src="{{pr.image.url}}">
+        <div class="card-title"><a href="{{ pr.get_absolute_url }}">{{pr.name}}</a></div>
+        <div class="card-sub">{{pr.name}},{{pr.ram}}/{{pr.memory}}</div>
+        <div class="card-sub">Цена : {{pr.price}}$</div>
+        <div class="btn-keeper">
+            <a class="btn" href="#">Купить</a>
+        </div>
+    </div>
+{%endfor%}

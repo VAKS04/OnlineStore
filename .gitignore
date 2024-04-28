@@ -1,0 +1,4 @@
+django_virtual/
+db.sqlite3
+db.sqbpro
+__pycache__

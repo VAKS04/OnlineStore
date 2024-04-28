@@ -1,0 +1,142 @@
+* {
+    /* background-image: url("../images/background.gif"); */
+    background-color: #0A0A0A;
+    /* margin: 0; */
+    padding: 0;
+    /* box-sizing: border-box; Учитываем padding и border в размерах элемента */
+}
+.wrapper{
+    display: flex;
+    padding: 0;
+
+}
+p,li,td,h1, h2 {
+    color: white;
+}
+.wrapper li{
+    margin-left: 0;
+}
+a{
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет от родительского элемента */
+    /* cursor: auto; Устанавливаем стандартный курсор */
+}
+a:hover {
+    /* Стили для состояния при наведении */
+    color: grey; /* Мы не изменяем цвет при наведении */
+    /* text-decoration:crimson; Убираем подчеркивание при наведении */
+    /* cursor: auto; Стандартный курсор при наведении */
+}
+li{
+    list-style-type:none;
+    margin-right: 10px;
+}
+.main_inscription{
+    display: flex; /* Используем flexbox */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 50px; /* Устанавливаем высоту блока равной высоте окна просмотра */
+}
+.main_inscription p{
+    font-size: 50px;
+}
+.main_body{
+    max-width: 1340px;
+    margin: 0 auto;
+    /* auto - auto расчитывает растаяние по бокам   */
+    padding: 0 75px;
+}
+.header_1{
+    padding: 10px 0 10px 0;
+}
+.header{
+    padding: 0 0 20px 0;
+}
+.header_2 p{
+    font-size: 30px;
+}
+.description p{
+    font-size: 25px;
+}
+
+
+.card-img{
+    width: 150px;
+    height: 200px;
+    border-radius: 11px;
+}
+
+.card{
+    margin: 15px 15px 15px 0;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 10px;
+    width:150px;
+    background-color: #f0f0f0;
+    padding:20px;
+    border-radius: 20px;
+}
+.card *{
+    background-color: #f0f0f0;
+}
+.card-title{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500px;
+}
+
+.card-sub{
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn-keeper{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn{
+    background-color: gray;
+    padding: 7px 12px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.5s linear;
+}
+
+.btn:hover{
+    background-color: black;
+}
+
+.main-card-product{
+    display: flex;
+}
+
+.main-card-img{
+    width: 250px;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 11px;
+}
+
+.second-part{
+    color: white;
+}
+
+.main-card-title{
+    font-size: 30px;
+    margin: 0;
+}
+
+table .first-part{
+    width: 200px;
+    padding: 5px;
+}
+table .second-part{
+    width: 200px;
+}
+
+.width-card{
+    width: 75%;
+}

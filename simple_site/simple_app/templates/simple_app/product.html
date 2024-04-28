@@ -1,0 +1,24 @@
+{% extends "simple_app/base.html"%}
+{% load product_tags %}
+{% load static %}
+{% block content %}
+<div class="main-card">
+    {% if product %}
+        {%for pr in product%}
+        {%if pr.is_published%}
+        <div class="card">
+            <img class="card-img" src="{{pr.image.url}}">
+            <div class="card-title"><a href="{{ pr.get_absolute_url }}">{{pr.name}}</a></div>
+            <div class="card-sub">{{pr.short_description}}</div>
+            <div class="card-sub">Цена : {{pr.price}}$</div>
+            <div class="btn-keeper">
+                <a class="btn" href="#">Купить</a>
+            </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+    {% else %}
+        <h1>Извините , каталог пуст на данный момент !</h1>
+    {% endif %}
+</div>
+{% endblock %}

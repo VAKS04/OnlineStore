@@ -1,0 +1,32 @@
+{%load static%}
+{% load product_tags%}
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'simple_app/css/base_style.css'%}">
+    </head>
+    <body>
+        <div class="main_body">
+            <div class="header">
+                <div class="header_1">
+                    <ul class="wrapper">
+                        {% show_menu as menu %}
+                        {% for m in menu%}
+                        <li><a href="{%url m.url_path%}">{{m.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="header_2">
+                    <p>Каталог</p>
+                    <ul class="wrapper">
+                        {% show_catalog as catalog %}
+                        {% for c in catalog%}
+                        <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+                        {% endfor%}
+                    </ul>
+                </div>
+            </div>
+            {% block content%}
+            {% endblock %}
+        </div>
+    </body>
+</html>
