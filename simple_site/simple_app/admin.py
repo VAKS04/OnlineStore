@@ -4,6 +4,7 @@ from .models import *
 # admin.site.register(Phone)
 
 admin.site.register(Menu)
+admin.site.register(ModelDevice)
 
 @admin.register(Phone)
 class PhoneAdmin(admin.ModelAdmin):

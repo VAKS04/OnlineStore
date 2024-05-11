@@ -7,5 +7,5 @@ urlpatterns = [
     path('',views.index,name="index"),
     path('other/',views.other_func,name="other"),
     path('<slug:cat_slug>/',views.view_everyone_product,name="category"),
-    path('<slug:cat_slug>/<slug:prod_slug>',views.product,name="product_page")
+    path('<slug:cat_slug>/<slug:model_slug>/<slug:prod_slug>',views.product,name="product_page")
 ]

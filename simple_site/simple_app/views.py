@@ -19,15 +19,17 @@ def index(request):
 
 
 def view_everyone_product(request,cat_slug):
+
+    # filter_object = request.GET.get('')
     category = get_object_or_404(Category,slug=cat_slug)
     objects = Device.objects.filter(cat__slug=category.slug)
-    return render(request,"simple_app/product.html",context={"product":objects})
+    name_model = [name.model for name in objects]
+    return render(request,"simple_app/product.html",context={"product":objects,"name_product":name_model})
 
 #Второй параметр является затычкой(возможно пока что)
-def product(request,cat_slug,prod_slug):
+def product(request,model_slug,cat_slug,prod_slug):
     post = get_object_or_404(Device,slug=prod_slug)
-    feature = post.general_feature()
-    return render(request,"simple_app/product_page.html",context={"product":post,"feature":feature})
+    return render(request,"simple_app/product_page.html",context={"product":post})
 
 
 def other_func(request):

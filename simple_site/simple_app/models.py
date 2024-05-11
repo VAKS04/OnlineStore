@@ -9,6 +9,7 @@ from polymorphic.models import PolymorphicModel
 
 
 class Device(PolymorphicModel):
+    model = models.ForeignKey('ModelDevice',on_delete=models.PROTECT,verbose_name="Модель")
     name = models.CharField(max_length=100,verbose_name='Название')
     slug = models.SlugField(blank=True)
     image = models.ImageField(upload_to="photos/%Y/%m/%d",verbose_name='Изображение')
@@ -22,7 +23,7 @@ class Device(PolymorphicModel):
     cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
 
     def short_description(self):
-        return f"{self.name},Год выпуска:{self.year},"
+        return f"Год выпуска:{self.year},"
 
     def general_feature(self):
         return {
@@ -31,18 +32,15 @@ class Device(PolymorphicModel):
             "Bluetooth":self.bluetoth,
             }
             
+    def title(self):
+        return f"{self.model.name.title()} {self.name}"
 
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
         #первым параметром указывается name из path в urls-приложения
-        return reverse("product_page",kwargs={'cat_slug':self.cat.slug,'prod_slug':self.slug})
-    
-    # Хотел использовать 
-    # class Meta:
-    #     abstract = True
-
+        return reverse("product_page",kwargs={'cat_slug':self.cat.slug,'model_slug':self.model.name,'prod_slug':self.slug})
 
 class Phone(Device):
     ram = models.IntegerField()
@@ -96,6 +94,14 @@ class Menu(TemplateForLinks):
         verbose_name_plural = "Панель меню"
 
 
+class ModelDevice(models.Model):
+    name = models.CharField(max_length=100,verbose_name="Название модели",null=True)
+    class Meta:
+        verbose_name = "Модель"
+        verbose_name_plural = "Модели "
+
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
