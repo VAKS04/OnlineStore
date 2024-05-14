@@ -1,6 +1,4 @@
 import datetime
-import json
-import os
 from django.db import models,connection
 from django.urls import reverse
 from django.core.validators import MinValueValidator,MaxValueValidator
@@ -10,6 +8,7 @@ from polymorphic.models import PolymorphicModel
 
 class Device(PolymorphicModel):
     model = models.ForeignKey('ModelDevice',on_delete=models.PROTECT,verbose_name="Модель")
+    cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
     name = models.CharField(max_length=100,verbose_name='Название')
     slug = models.SlugField(blank=True)
     image = models.ImageField(upload_to="photos/%Y/%m/%d",verbose_name='Изображение')
@@ -19,8 +18,6 @@ class Device(PolymorphicModel):
     bluetoth = models.FloatField(validators=[MinValueValidator(3.0),MaxValueValidator(5.5)],default=4.0,verbose_name="Bluetoth")
     price = models.IntegerField(verbose_name="Цена")
     is_published = models.BooleanField(default=True,verbose_name='Опубликовано')
-
-    cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
 
     def short_description(self):
         return f"Год выпуска:{self.year},"
@@ -95,13 +92,21 @@ class Menu(TemplateForLinks):
 
 
 class ModelDevice(models.Model):
-    name = models.CharField(max_length=100,verbose_name="Название модели",null=True)
+    name = models.CharField(max_length=100,verbose_name="Название модели")
+    cat = models.ManyToManyField('Category')
+
     class Meta:
         verbose_name = "Модель"
         verbose_name_plural = "Модели "
 
     def __str__(self):
         return self.name
+    
+    def get_industries(self):
+        return ", ".join([industry.name for industry in self.cat.all()])
+    
+    #verbose name for function
+    get_industries.short_description = "Производит"
 
 
 class Category(models.Model):

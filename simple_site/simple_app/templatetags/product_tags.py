@@ -18,3 +18,8 @@ def show_menu():
 def show_catalog():
     catalog = Category.objects.all()
     return catalog
+
+@register.simple_tag()
+def show_model(param):
+    model_device = ModelDevice.objects.filter(cat__slug = param)
+    return model_device

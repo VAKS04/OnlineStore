@@ -4,12 +4,17 @@ from .models import *
 # admin.site.register(Phone)
 
 admin.site.register(Menu)
-admin.site.register(ModelDevice)
+# admin.site.register(ModelDevice)
+
+@admin.register(ModelDevice)
+class ModelDeviceAdmin(admin.ModelAdmin):
+    list_display = ('id','name','get_industries')
+    list_display_links = ('name',)
 
 @admin.register(Phone)
 class PhoneAdmin(admin.ModelAdmin):
     #show field
-    list_display = ('id','name','image','is_published')
+    list_display = ('id','model','name','image','is_published')
     # set links for field
     list_display_links = ('id','name',)
     #automatic field completion
@@ -21,7 +26,7 @@ class PhoneAdmin(admin.ModelAdmin):
 
 @admin.register(HeadPhone)
 class HeadphoneAdmin(admin.ModelAdmin):
-    list_display = ('id','name','image','is_published')
+    list_display = ('id','model','name','image','is_published')
     list_display_links = ('id','name')
     prepopulated_fields = {"slug":("name",)}
     list_editable = ('is_published',)

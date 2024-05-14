@@ -3,36 +3,41 @@
 {% load static %}
 {% block content %}
 <div class="product-case">
-    {% if product %}
     <div class="main-card">
-        
-            {%for pr in product%}
-            {%if pr.is_published%}
-            <div class="card">
-                <img class="card-img" src="{{pr.image.url}}">
-                <div class="card-title"><a href="{{ pr.get_absolute_url }}">{{pr.title}}</a></div>
-                <div class="card-sub">{{pr.short_description}}</div>
-                <div class="card-sub">Цена : {{pr.price}}$</div>
-                <div class="btn-keeper">
-                    <a class="btn" href="#">Купить</a>
-                </div>
+        {% if product %}
+        {%for pr in product%}
+        {%if pr.is_published%}
+        <div class="card">
+            <img class="card-img" src="{{pr.image.url}}">
+            <div class="card-title"><a href="{{ pr.get_absolute_url }}">{{pr.title}}</a></div>
+            <div class="card-sub">{{pr.short_description}}</div>
+            <div class="card-sub">Цена : {{pr.price}}$</div>
+            <div class="btn-keeper">
+                <a class="btn" href="#">Купить</a>
             </div>
-            {%endif%}
-            {%endfor%}
+        </div>
+        {%endif%}
+        {%endfor%}
+        {% else %}
+        <h1>Извините , каталог пуст на данный момент !</h1>
+        {% endif %}
+            
     </div>
+    {{request.GET.apple}}
     <div class="case-form">
-        <form action="product.html" method="get">
-
+        <form action="{%url 'category' cat_slug%}" method="get">
+            <div>Производитель<div>
+            {% show_model cat_slug as name_product%}
             {% for slug in name_product%}
-            <label>
-                {{slug}}
-            </label>
-            <input type="checkbox" name = "sl_pr">
+            <div>
+                <!-- прописать условие для checked -->
+                <input type="checkbox" name = "{{slug}}"  >
+                <label>{{slug}}</label>
+            </div>
+            
             {% endfor %}
+            <button type="submit">Применить</button>
         </form>
     </div>
-    {% else %}
-    <h1>Извините , каталог пуст на данный момент !</h1>
-    {% endif %}
 </div>
 {% endblock %}

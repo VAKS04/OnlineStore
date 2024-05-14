@@ -71,11 +71,10 @@ li{
     border-radius: 20px;
     display: inline-block;
     padding: 10px;
-    height: 420px;
+    height: 390px;
     width:150px;
     background-color: #f0f0f0;
     padding:20px;
-    border-radius: 20px;
 }
 .card *{
     background-color: #f0f0f0;
@@ -148,5 +147,13 @@ table .second-part{
     display: flex;
 }
 .case-form{
-    width:22%;
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+    height: 390px;
+    width:150px;
+    background-color: #f0f0f0;
+    padding:20px;
+}
+.case-form *{
+    background-color: #f0f0f0;
 }
