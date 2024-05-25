@@ -13,8 +13,18 @@
                         {% for m in menu%}
                         <li><a href="{%url m.url_path%}">{{m.title}}</a></li>
                         {% endfor %}
-                        <li><a href="{%url 'form:register'%}">Регистрация</a></li>
+                        {% if user.is_authenticated%}
+                        <li>
+                            {{user.username}}
+                        </li>
+                        <li><a href="{%url 'form:logout'%}">Выйти</a></li>
+                        {%else%}
+                        <li><a href="{%url 'form:register'%}">Регистрация/Авторизация</a></li>
+                        {%endif%}
                     </ul>
+                    <div class="top-right">
+
+                    </div>
                 </div>
                 <div class="header_2">
                     <p>Каталог</p>

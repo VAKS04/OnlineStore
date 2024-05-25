@@ -136,4 +136,4 @@ LOGIN_REDIRECT_URL = "index"
 # Перенаправляет неавторизованного ,когда желает посетить закрытую страницу
 # LOGIN_URL
 # Url после выхода 
-# LOGOUT_REDIRECT_URL
+LOGOUT_REDIRECT_URL = 'index'

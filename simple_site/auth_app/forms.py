@@ -1,5 +1,7 @@
+from typing import Any
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 
 class RegisterUserForm(forms.ModelForm):
     username = forms.CharField(label="Имя")
@@ -30,3 +32,8 @@ class RegisterUserForm(forms.ModelForm):
         if get_user_model().objects.filter(username = username).exists():
             raise forms.ValidationError("Пользователь с таким именем уже суцествует")
         return username
+    
+
+class AuthUserForm(AuthenticationForm):
+    username = forms.CharField(label="Имя")
+    password = forms.CharField(label="Пароль")

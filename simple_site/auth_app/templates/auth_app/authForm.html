@@ -1,0 +1,12 @@
+{%extends "auth_app/baseForm.html"%}
+
+{%block content%}
+    <form action="" method="post">
+        {%csrf_token%}
+          <h1>Авторизация</h1>
+          <hr>
+          {{ form.as_p }}
+          <button type="submit" class="registerbtn">Войти</button>
+        </div>
+      </form>
+{%endblock%}

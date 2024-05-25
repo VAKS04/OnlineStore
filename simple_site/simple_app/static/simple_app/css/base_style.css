@@ -1,9 +1,6 @@
 * {
-    /* background-image: url("../images/background.gif"); */
     background-color: #0A0A0A;
-    /* margin: 0; */
     padding: 0;
-    /* box-sizing: border-box; Учитываем padding и border в размерах элемента */
 }
 .wrapper{
     display: flex;
@@ -31,15 +28,6 @@ li{
     list-style-type:none;
     margin-right: 10px;
 }
-.main_inscription{
-    display: flex; /* Используем flexbox */
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: center; /* Центрируем по вертикали */
-    height: 50px; /* Устанавливаем высоту блока равной высоте окна просмотра */
-}
-.main_inscription p{
-    font-size: 50px;
-}
 .main_body{
     max-width: 1340px;
     margin: 0 auto;
@@ -55,8 +43,37 @@ li{
 .header_2 p{
     font-size: 30px;
 }
-.description p{
+
+.main_inscription{
+    display: flex; /* Используем flexbox */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 50px; /* Устанавливаем высоту блока равной высоте окна просмотра */
+}
+.main_inscription{
+    font-size: 50px;
+    margin: 0;
+    color: #0A0A0A;
+}
+
+.main_title, .first_title,.second_title,.third_title{
     font-size: 25px;
+    margin: 15px 0;
+}
+
+.finally_title{
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+
+.main,.main *{
+    background-color: white;
+    color:#0A0A0A
+}
+.main{
+    padding: 0 10px;
+    border-radius: 10px;
+    margin :0;
 }
 
 

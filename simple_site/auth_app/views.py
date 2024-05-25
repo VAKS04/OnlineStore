@@ -1,17 +1,15 @@
 from django.shortcuts import render,redirect
-from .forms import RegisterUserForm
-# from django.contrib.auth.views import LoginView
-# from django.contrib.auth.forms import AuthenticationForm
+from .forms import *
+from django.contrib.auth.views import LoginView
 
 
-# class LoginUser(LoginView):
-#     form_class = AuthenticationForm
-#     template_name = "auth/baseForm.html"
+class LoginUser(LoginView):
+    form_class = AuthUserForm
+    template_name = "auth_app/authForm.html"
 
 
     # def get_success_url(self):
     #     return reverse_lazy("index")
-
 
 def register(request):
     if request.method == "POST":
@@ -24,5 +22,5 @@ def register(request):
             return redirect('index')
     else:
         form = RegisterUserForm()
-    return render(request,'auth/registerForm.html',context={"form":form})
+    return render(request,'auth_app/registerForm.html',context={"form":form})
 # Create your views here.
