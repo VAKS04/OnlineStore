@@ -1,0 +1,31 @@
+* {
+    background-color: #0A0A0A;
+    /* padding: 0; */
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Сдвиг на 50% ширины и высоты для центрирования */
+    padding: 20px;
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+    /* height: 390px;
+    width:150px; */
+    background-color: #f0f0f0;
+    padding:20px;
+    border-radius: 11px;
+    /* position: absolute; */
+
+}
+
+.container *{
+    background-color: #f0f0f0;
+}
+
+.fill-fields{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* расстояние между элементами */
+}

@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('form/',include('auth_app.urls',namespace="form")),
     path('',include('simple_app.urls')),
     #not working
     # path("__debug__/", include("debug_toolbar.urls")),

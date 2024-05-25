@@ -3,8 +3,13 @@ from .models import *
 # Register your models here.
 # admin.site.register(Phone)
 
-admin.site.register(Menu)
+# admin.site.register(Menu)
 # admin.site.register(ModelDevice)
+
+@admin.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('id','title','url_path')
+    list_display_links = ('title',)
 
 @admin.register(ModelDevice)
 class ModelDeviceAdmin(admin.ModelAdmin):

@@ -20,13 +20,16 @@ def index(request):
 
 def view_everyone_product(request,cat_slug):
 
-    # print(request.GET)
+
+    # session = [f"{i} -> {k}" for i,k in request.session.items()]
+    # print(session)
+
     model = [k for k,i in request.GET.items()]
-    print(model)
+    # print(model)
 
     category = get_object_or_404(Category,slug=cat_slug)
     objects = Device.objects.filter(cat__slug=category.slug)
-    print(objects)
+    # print(objects)
     if request.GET:
         objects = objects.filter(model__name__in = model)
         
