@@ -1,7 +1,9 @@
-{% extends "simple_app/base.html"%}
+{% extends "base.html"%}
 {% load product_tags %}
-{% load static %}
+<!-- {% load static %} -->
+
 {% block content %}
+{%show_catalog_panel%}
 <div class="product-case">
     <div class="main-card">
         {% if product %}

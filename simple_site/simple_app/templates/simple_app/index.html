@@ -1,5 +1,9 @@
-{%extends 'simple_app/base.html'%}
+{%extends 'base.html'%}
+{% load product_tags%}
+
+
 {% block content%}
+{%show_catalog_panel%}
 <div class="main">
         <p class="main_inscription">TimeShopping</p>
     <div class="description">

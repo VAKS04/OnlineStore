@@ -5,8 +5,22 @@
 .wrapper{
     display: flex;
     padding: 0;
-
 }
+
+.wrapper_right {
+    /* list-style-type: none; */
+    margin: 0;
+    display: flex; /* Используем flexbox для расположения элементов в одну строку */
+    justify-content: flex-end; /* Располагаем элементы справа */
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    padding: 0 10px; /* Дополнительный стиль для примера */
+}
+
+.wrapper_right li {
+    margin-left: 20px; /* Отступ между элементами списка */
+}
+
+
 p,li,td,h1, h2 {
     color: white;
 }
@@ -36,9 +50,15 @@ li{
 }
 .header_1{
     padding: 10px 0 10px 0;
+    justify-content: space-between
 }
 .header{
     padding: 0 0 20px 0;
+}
+
+.header .header_1 .wrapper{
+    justify-content: space-between
+
 }
 .header_2 p{
     font-size: 30px;
@@ -141,7 +161,7 @@ li{
     color: white;
 }
 
-.main-card-title{
+.main-card-title, .profile-title{
     font-size: 30px;
     margin: 0;
 }
@@ -173,4 +193,28 @@ table .second-part{
 }
 .case-form *{
     background-color: #f0f0f0;
+}
+
+.profile-block {
+    margin: 15px 15px 15px 0;
+    border-radius: 20px;
+    /* display: flex; */
+    padding: 10px;
+    background-color: #f0f0f0;
+    max-width: 1340px;
+    height: 400px;
+    padding:20px;
+}
+.profile-block *{
+    background-color: #f0f0f0;
+}
+
+.bio{
+    display: table-caption;
+}
+
+.image-block{
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
 }

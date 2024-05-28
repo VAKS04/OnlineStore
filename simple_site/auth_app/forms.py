@@ -37,3 +37,6 @@ class RegisterUserForm(forms.ModelForm):
 class AuthUserForm(AuthenticationForm):
     username = forms.CharField(label="Имя")
     password = forms.CharField(label="Пароль")
+
+    AuthenticationForm.error_messages['invalid_login'] = "Пароль или Имя были введены неправильно.Проверьте введенные данные."
+        

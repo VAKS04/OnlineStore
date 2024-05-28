@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{% load static %}
+{%block content%}
+    <div class="profile-block">
+        <form action="" method="post">
+            {%csrf_token%}
+        <div class="profile-title">Личный кабинет</div>
+        <img class="image-block" src="{% static 'auth_app/image/cat.jpeg'%}">
+
+        <div class="bio">
+                <label>
+                    Name : <input type="text" >
+                </label>
+                <label>
+                    Surname : <input type="text">
+                </label>
+                <label>
+                    Password : <input type="password">
+                </label>
+                <label>
+                    Email : <input type="email">
+                </label>
+
+        </div>
+        <button>Изменить</button>
+    </form>
+    </div>
+{%endblock%}

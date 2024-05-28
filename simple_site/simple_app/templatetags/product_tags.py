@@ -4,20 +4,15 @@ from django.shortcuts import get_object_or_404
 from simple_app.models import *
 register = Library()
 
-# @register.inclusion_tag("simple_app/card_product.html")
-# def show_product():
-#     product = Phone.objects.all()
-#     return {"product":product}
+@register.inclusion_tag("simple_app/catalog_panel.html")
+def show_catalog_panel():
+    catalog = Category.objects.all()
+    return {"catalog":catalog}
 
 @register.simple_tag()
 def show_menu():
     menu = Menu.objects.all()
     return menu
-
-@register.simple_tag()
-def show_catalog():
-    catalog = Category.objects.all()
-    return catalog
 
 @register.simple_tag()
 def show_model(param):

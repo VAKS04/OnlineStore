@@ -23,4 +23,8 @@ def register(request):
     else:
         form = RegisterUserForm()
     return render(request,'auth_app/registerForm.html',context={"form":form})
+
+
+def profile(request):
+    return render(request,"auth_app/profile.html")
 # Create your views here.
