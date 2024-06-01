@@ -1,7 +1,6 @@
-from typing import Any
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm,UserChangeForm
 
 class RegisterUserForm(forms.ModelForm):
     username = forms.CharField(label="Имя")
@@ -39,4 +38,8 @@ class AuthUserForm(AuthenticationForm):
     password = forms.CharField(label="Пароль")
 
     AuthenticationForm.error_messages['invalid_login'] = "Пароль или Имя были введены неправильно.Проверьте введенные данные."
-        
+
+class UserChangeProfile(UserChangeForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['username','last_name','email']

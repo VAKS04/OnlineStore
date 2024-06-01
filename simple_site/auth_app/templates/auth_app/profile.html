@@ -2,27 +2,29 @@
 {% load static %}
 {%block content%}
     <div class="profile-block">
-        <form action="" method="post">
+        <form action="{% url 'form:profile'%}" method="post">
             {%csrf_token%}
-        <div class="profile-title">Личный кабинет</div>
-        <img class="image-block" src="{% static 'auth_app/image/cat.jpeg'%}">
+            <div class="profile-title">Личный кабинет</div>
+            <img class="image-block" src="{% static 'auth_app/image/cat.jpeg'%}">
 
-        <div class="bio">
+            <div class="bio">
                 <label>
-                    Name : <input type="text" >
+                    Name : <input type="text" name="username" value="{{form.username.value}}">
                 </label>
+                {% if form.username.errors%}
+                <p>{{form.username.errors}}</p>
+                {% endif%}
                 <label>
-                    Surname : <input type="text">
+                    Surname * : <input type="text" name="last_name"  value="{{form.last_name.value}}">
                 </label>
+                <!-- <label>
+                    Password : <input type="password" value="{{form.password.value}}">
+                </label> -->
                 <label>
-                    Password : <input type="password">
+                    Email * : <input type="email" name="email" value="{{form.email.value}}">
                 </label>
-                <label>
-                    Email : <input type="email">
-                </label>
-
-        </div>
-        <button>Изменить</button>
-    </form>
+            </div>
+            <button>Изменить</button>
+        </form>
     </div>
 {%endblock%}

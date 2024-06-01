@@ -6,6 +6,8 @@ from django.core.validators import MinValueValidator,MaxValueValidator
 from polymorphic.models import PolymorphicModel
 
 
+# class HHH(models.Model):
+#     pass
 class Device(PolymorphicModel):
     model = models.ForeignKey('ModelDevice',on_delete=models.PROTECT,verbose_name="Модель")
     cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
