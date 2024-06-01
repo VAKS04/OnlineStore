@@ -33,5 +33,4 @@ def profile(request):
             return redirect("form:profile")
     else:
         form = UserChangeProfile(instance=request.user)
-        # print(request.user.password)
     return render(request,"auth_app/profile.html",context={"form":form})

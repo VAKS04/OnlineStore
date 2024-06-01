@@ -5,9 +5,6 @@ from django.core.validators import MinValueValidator,MaxValueValidator
 # Не стандартная либа
 from polymorphic.models import PolymorphicModel
 
-
-# class HHH(models.Model):
-#     pass
 class Device(PolymorphicModel):
     model = models.ForeignKey('ModelDevice',on_delete=models.PROTECT,verbose_name="Модель")
     cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
@@ -94,12 +91,12 @@ class Menu(TemplateForLinks):
 
 
 class ModelDevice(models.Model):
-    name = models.CharField(max_length=100,verbose_name="Название модели")
+    name = models.CharField(max_length=100,verbose_name="Название производителя")
     cat = models.ManyToManyField('Category')
 
     class Meta:
-        verbose_name = "Модель"
-        verbose_name_plural = "Модели "
+        verbose_name = "Производитель"
+        verbose_name_plural = "Производители"
 
     def __str__(self):
         return self.name
@@ -127,6 +124,6 @@ class Category(models.Model):
         return reverse("category",kwargs={'cat_slug':self.slug})
 
 
-def delete_table(table_name):
-    with connection.cursor() as cursor:
-        cursor.execute("DROP TABLE IF EXISTS {};".format(table_name))
+# def delete_table(table_name):
+#     with connection.cursor() as cursor:
+#         cursor.execute("DROP TABLE IF EXISTS {};".format(table_name))
