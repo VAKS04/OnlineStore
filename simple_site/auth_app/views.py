@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth.views import LoginView
 
@@ -24,10 +25,15 @@ def register(request):
         form = RegisterUserForm()
     return render(request,'auth_app/registerForm.html',context={"form":form})
 
-
+#function profile is only for registered users so we add decorator
+@login_required
 def profile(request):
     if request.method == "POST":
-        form = UserChangeProfile(data = request.POST,instance=request.user)
+        form = UserChangeProfile(
+            data = request.POST, 
+            instance = request.user, #fill out the template without the image 
+            files = request.FILES # fill the image
+            ) 
         if form.is_valid():
             form.save()
             return redirect("form:profile")

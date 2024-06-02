@@ -8,7 +8,6 @@ class RegisterUserForm(forms.ModelForm):
     password2 = forms.CharField(label="Повторите пароль")
     email = forms.EmailField(label= "Email")
 
-
     class Meta:
         model = get_user_model()
         fields = ['username','password','email']
@@ -33,13 +32,16 @@ class RegisterUserForm(forms.ModelForm):
         return username
     
 
+
 class AuthUserForm(AuthenticationForm):
     username = forms.CharField(label="Имя")
     password = forms.CharField(label="Пароль")
 
     AuthenticationForm.error_messages['invalid_login'] = "Пароль или Имя были введены неправильно.Проверьте введенные данные."
 
+
+
 class UserChangeProfile(UserChangeForm):
     class Meta:
         model = get_user_model()
-        fields = ['username','last_name','email']
+        fields = ['image','username','last_name','email']

@@ -2,10 +2,15 @@
 {% load static %}
 {%block content%}
     <div class="profile-block">
-        <form action="{% url 'form:profile'%}" method="post">
+        <form action="{% url 'form:profile'%}" method="post" enctype="multipart/form-data">
             {%csrf_token%}
             <div class="profile-title">Личный кабинет</div>
-            <img class="image-block" src="{% static 'auth_app/image/cat.jpeg'%}">
+            {%if user.image%}
+                <img class="image-block" src="{{user.image.url}}">
+            {%else%}
+                <img class="image-block" src="{% static 'auth_app/image/cat.jpeg'%}">
+            {%endif%}    
+            <input type="file" name="image">
 
             <div class="bio">
                 <label>
