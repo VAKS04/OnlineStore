@@ -1,6 +1,5 @@
 from django.template import Library
 
-from django.shortcuts import get_object_or_404
 from simple_app.models import *
 register = Library()
 
@@ -8,11 +7,6 @@ register = Library()
 def show_catalog_panel():
     catalog = Category.objects.all()
     return {"catalog":catalog}
-
-@register.simple_tag()
-def show_menu():
-    menu = Menu.objects.all()
-    return menu
 
 @register.simple_tag()
 def show_model(param):

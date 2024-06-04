@@ -6,11 +6,6 @@ from .models import *
 # admin.site.register(Menu)
 # admin.site.register(ModelDevice)
 
-@admin.register(Menu)
-class MenuAdmin(admin.ModelAdmin):
-    list_display = ('id','title','url_path')
-    list_display_links = ('title',)
-
 @admin.register(ModelDevice)
 class ModelDeviceAdmin(admin.ModelAdmin):
     list_display = ('id','name','get_industries')

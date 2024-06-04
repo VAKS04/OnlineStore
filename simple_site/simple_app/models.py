@@ -75,21 +75,6 @@ class HeadPhone(Device):
         verbose_name = "Наушники"
         verbose_name_plural = "Наушники"
 
-class TemplateForLinks(models.Model):
-    title = models.CharField(max_length=255)
-    #Можно было через SlugField,но я точно не уверен,
-    #что это нормальное решение
-    url_path = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.title
-
-class Menu(TemplateForLinks):
-    class Meta:
-        verbose_name = "Панель меню"
-        verbose_name_plural = "Панель меню"
-
-
 class ModelDevice(models.Model):
     name = models.CharField(max_length=100,verbose_name="Название производителя")
     cat = models.ManyToManyField('Category')

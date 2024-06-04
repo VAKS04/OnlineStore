@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+
+{%load static%}
+
+{%block content%}
+<div class="cart">
+    <div class="title">
+        Корзина
+    </div>
+    <div class="main_block">
+        <div class="cart_value">
+            <img class="cart_img_value" src="{% static 'cart/image/11.jpg'%}">
+            <div class="short_inf">
+                <div class="title_product">Title</div>
+                <div class="something">something</div>
+                <div class="panel">
+                    <button class="but_cats">+</button>
+                    <div class="value">1</div>
+                    <button class="but_cats">-</button>
+                </div>
+                <div class="final_price">100$</div>
+            </div>
+        </div>
+    <button class ="button_order">Оформить заказ</button>
+    </div>
+
+</div>
+{%endblock%}

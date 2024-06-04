@@ -38,6 +38,11 @@ a:hover {
     /* text-decoration:crimson; Убираем подчеркивание при наведении */
     /* cursor: auto; Стандартный курсор при наведении */
 }
+
+.menu li {
+    display: inline;
+}
+
 li{
     list-style-type:none;
     margin-right: 10px;
@@ -195,17 +200,16 @@ table .second-part{
     background-color: #f0f0f0;
 }
 
-.profile-block {
+.profile-block ,.cart{
     margin: 15px 15px 15px 0;
     border-radius: 20px;
-    /* display: flex; */
     padding: 10px;
     background-color: #f0f0f0;
     max-width: 1340px;
     height: 400px;
     padding:20px;
 }
-.profile-block *{
+.profile-block *,.cart *{
     background-color: #f0f0f0;
 }
 
@@ -217,4 +221,50 @@ table .second-part{
     border: 2px solid black;
     width: 200px;
     height: 200px;
+}
+
+.cart .title {
+    text-align: center;
+    font-size: 35px;
+} 
+.cart_img_value {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.cart_value .main_block{
+    align-content: center;
+}
+
+.cart_value {
+    margin: 5px;
+    border-radius: 20px;
+    background-color: grey;
+    width: 500px;
+    display: flex;
+}
+.cart .title_product{
+    font-size: 25px;
+}
+.cart_value * {
+    background-color: grey;
+}
+
+.cart .panel{
+    display: inline-flex;
+    /* width: 100px; */
+}
+
+.cart .but_cats{
+    width: 20px;
+    height: 20px;
+}
+.cart .final_price {
+    margin-top: 20px;
+    font-size: 25px;
+}
+.button_order{
+    margin-top: 20px;
 }
