@@ -10,9 +10,8 @@
                 <div class="header_1">
                     <div class="wrapper">
                         <ul class="menu">                    
-                            <li><a href="{%url 'index'%}">Главная</a></li>
-                            <li><a href="{% url 'cart:cart' %}">Корзина</a></li>
-                            {% comment %} <li><a href="{%url m.url_path%}">{{m.title}}</a></li> {% endcomment %}
+                            <li><a href="{%url 'index'%}">Главная</a></li> 
+                            <li><a href="{%url 'cart:cart' %}">Корзина</a></li>
                         </ul>
                         <ul class="wrapper_right">
                             {% if user.is_authenticated%}

@@ -1,5 +1,5 @@
 import datetime
-from django.db import models,connection
+from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator,MaxValueValidator
 # Не стандартная либа
@@ -9,7 +9,7 @@ class Device(PolymorphicModel):
     model = models.ForeignKey('ModelDevice',on_delete=models.PROTECT,verbose_name="Модель")
     cat = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
     name = models.CharField(max_length=100,verbose_name='Название')
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField()
     image = models.ImageField(upload_to="photos/%Y/%m/%d",verbose_name='Изображение')
     year = models.PositiveIntegerField(validators=[MinValueValidator(1990),MaxValueValidator(datetime.date.today().year)],verbose_name="Год выпуска")
     description = models.TextField(max_length=255,blank=True,verbose_name='Описание')

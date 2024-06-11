@@ -229,7 +229,7 @@ table .second-part{
 } 
 .cart_img_value {
     width: 100px;
-    height: 100px;
+    height: 133px;
     border-radius: 20px;
     margin: 5px;
 }
@@ -245,26 +245,26 @@ table .second-part{
     width: 500px;
     display: flex;
 }
-.cart .title_product{
+.main .title_product{
     font-size: 25px;
 }
 .cart_value * {
     background-color: grey;
 }
 
-.cart .panel{
+.main .panel{
     display: inline-flex;
     /* width: 100px; */
 }
 
-.cart .but_cats{
+.main .but_cats{
     width: 20px;
     height: 20px;
 }
-.cart .final_price {
+.main .final_price {
     margin-top: 20px;
     font-size: 25px;
 }
 .button_order{
-    margin-top: 20px;
+    margin: 20px 0;
 }

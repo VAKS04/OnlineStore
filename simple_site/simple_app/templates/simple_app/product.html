@@ -14,7 +14,7 @@
             <div class="card-sub">{{pr.short_description}}</div>
             <div class="card-sub">Цена : {{pr.price}}$</div>
             <div class="btn-keeper">
-                <a class="btn" href="#">Купить</a>
+                <a class="btn" href="{% url 'cart:cart_add' pr.slug %}">Купить</a>
             </div>
         </div>
         {%endif%}

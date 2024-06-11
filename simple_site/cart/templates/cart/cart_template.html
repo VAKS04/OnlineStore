@@ -1,26 +1,31 @@
 {%extends "base.html"%}
 
 {%load static%}
+{%load cart_tags%}
 
 {%block content%}
-<div class="cart">
+<div class = "main">
     <div class="title">
         Корзина
     </div>
-    <div class="main_block">
+    <div>
+        {% tag_of_cart request as cart_item %}
+        {%for cart in cart_item%}
         <div class="cart_value">
-            <img class="cart_img_value" src="{% static 'cart/image/11.jpg'%}">
+            <img class="cart_img_value" src="{{cart.device.image.url}}">
             <div class="short_inf">
-                <div class="title_product">Title</div>
-                <div class="something">something</div>
+                <div class="title_product">{{cart.device.name}}</div>
+                <div class="something">{{cart.device.short_description}}</div>
                 <div class="panel">
                     <button class="but_cats">+</button>
-                    <div class="value">1</div>
+                    <div class="value">{{cart.quantity}}</div>
                     <button class="but_cats">-</button>
                 </div>
-                <div class="final_price">100$</div>
+                <div class="final_price">{{cart.quantity_device_price}} $</div>
             </div>
         </div>
+        {% endfor %}
+        <div class="total_price">{{cart_item.total_price}} $</div>
     <button class ="button_order">Оформить заказ</button>
     </div>
 
