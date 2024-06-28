@@ -28,7 +28,5 @@ urlpatterns = [
     # path("__debug__/", include("debug_toolbar.urls")),
 ]
 
-# Если в режиме отладки , то добавляем этот параметр
-# чтобы добавить путь в медиа-файлам   
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
+  
+

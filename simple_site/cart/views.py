@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from simple_app.models import Device
 from .models import Cart
 def cart_func(request):
@@ -19,5 +19,11 @@ def cart_add(request, product_slug):
         else:
             Cart.objects.create(user = request.user,device = product)
 
+    return render(request,"cart/cart_template.html")
+
+
+def cart_remove(request,prod_id):
+    cart = get_object_or_404(Cart,id = prod_id)
+    cart.delete()
     return render(request,"cart/cart_template.html")
 # Create your views here.
